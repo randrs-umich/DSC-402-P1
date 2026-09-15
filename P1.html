@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Ryan's Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <style>
+
+            html, body {
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+            }
+
+            body {
+                background: linear-gradient(12deg, #f1a753, #f57777);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: "League Spartan", sans-serif;
+            }
+
+            .boxm {
+                width: 760px;
+                height: auto;
+                text-align: center;
+                margin-bottom: 15px;
+                background: linear-gradient(80deg, #e2d0ff, #ce68fd);
+                border-radius: 12px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                outline: 4px solid #180085;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxm-top {
+                width: 840px;
+                margin-bottom: 20px;
+                background: linear-gradient(80deg, #c099ff, #e044ff);
+                outline: 5px solid #180085;
+                margin-top: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxt {
+                padding: .5rem .75rem;
+                margin-bottom: 15px;
+                background: #ffffff;
+                border-radius: 8px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                outline: 3px solid #180085;
+
+                display: inline-flex;
+                align-items: flex-start;
+                width: fit-content;
+                max-width: 100%;
+            }
+
+            .boxt .rightp {
+                width: 100%;
+                text-align: left;
+            }
+
+            .boxt h1 {
+                margin: 0;
+                margin-bottom: 10px;
+                padding: 0;
+                text-align: center;
+            }
+
+            .boxt p {
+                margin: 0;
+                padding: 0;
+                font-weight: bold;
+                font-size: 1.25rem;
+            }
+
+            .rightp {
+                margin-left: auto;
+            }
+
+            #vis1, #vis2, #vis3, #vis4 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+        </style>
+  <script src="https://cdn.jsdelivr.net/npm/vega@6.4.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.1.0"></script>
+</head>
+<body>
+    <main class="boxm boxm-top">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>US National Debt</h1>
+                <p style="text-indent: 40px">Below are some visualizations redarging the US National Debt from January 1, 2016 to January 1, 2026. This time frame was chosen for ease of viewing and simplicity. Total Debt is broken into two categories, Intragovernmental Holdings and Debt Held by the Public. Intragovernmental Holdings in in regards to the government owing itself money. Things such as trust funds for programs, borrowing for certain spikes in spending, and a small amount of marketable securities held by the government fall into this category. The Debt Held by the Public includes all other debt held by private citizens or organizations. This inculdes domestic and foreign investments in bonds and such.</p>
+            </div>
+        </main>
+    </main>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>General Visualization</h1>
+                <p style="text-indent: 40px">This visualization is very basic and conveys to readers that the debt is steadily increasing. It also allows for the 2 categories of debt to be compared with ease. This visualization is great for basic ideas regarding the national debt.</p>
+            </div>
+        </main>
+    </main>
+
+    <!--VIS 1-->
+
+<div id="vis1">
+  <script>
+    const spec1 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/randrs-umich/DSC-402-P1/main/DebtPenny-2000-2026.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "toDate(datum['Record Date']) >= toDate('2016-01-01') && toDate(datum['Record Date']) <= toDate('2026-01-01')"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Total Public Debt Outstanding'], ',', '')) / 1e12",
+      "as": "TotalDebt_T"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Intragovernmental Holdings'], ',', '')) / 1e12",
+      "as": "IntraGov_T"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Debt Held by the Public'], ',', '')) / 1e12",
+      "as": "DebtPublic_T"
+    }
+  ],
+  "layer": [
+    {
+      "transform": [{"calculate": "'Total Debt'", "as": "Series"}],
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "Record Date", "type": "temporal", "title": "Year"},
+        "y": {
+          "field": "TotalDebt_T",
+          "type": "quantitative",
+          "title": "Debt (Trillions of USD)",
+          "scale": {"domain": [0, 40]}
+        },
+        "color": {
+          "field": "Series",
+          "type": "nominal",
+          "scale": {"range": ["#1f77b4", "#d62728", "#2ca02c"]},
+          "title": "Debt Type",
+          "sort": [
+            "Total Debt",
+            "Debt Held by the Public",
+            "Intragovernmental Holdings"
+          ]
+        },
+        "tooltip": [
+          {"field": "Record Date", "type": "temporal"},
+          {"field": "TotalDebt_T", "type": "quantitative"},
+          {"field": "IntraGov_T", "type": "quantitative"},
+          {"field": "DebtPublic_T", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "transform": [
+        {"calculate": "'Intragovernmental Holdings'", "as": "Series"}
+      ],
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "Record Date", "type": "temporal"},
+        "y": {"field": "IntraGov_T", "type": "quantitative"},
+        "color": {
+          "field": "Series",
+          "type": "nominal",
+          "scale": {"range": ["#1f77b4", "#d62728", "#2ca02c"]},
+          "title": "Debt Type",
+          "sort": [
+            "Total Debt",
+            "Debt Held by the Public",
+            "Intragovernmental Holdings"
+          ]
+        }
+      }
+    },
+    {
+      "transform": [{"calculate": "'Debt Held by the Public'", "as": "Series"}],
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "Record Date", "type": "temporal"},
+        "y": {"field": "DebtPublic_T", "type": "quantitative"},
+        "color": {
+          "field": "Series",
+          "type": "nominal",
+          "scale": {"range": ["#1f77b4", "#d62728", "#2ca02c"]},
+          "title": "Debt Type",
+          "sort": [
+            "Total Debt",
+            "Debt Held by the Public",
+            "Intragovernmental Holdings"
+          ]
+        }
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis1", spec1, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    </script>
+</div>
+
+    <br>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Political Visualization</h1>
+                <p style="text-indent: 40px">This visualization has a political implication. The times highlighted in red are when Donald Trump was the president. This allows readers to contextualize this data with the presidential leadership.</p>
+            </div>
+        </main>
+    </main>
+
+<!--VIS 2-->
+
+  <div id="vis2">
+  <script>
+    const spec2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/randrs-umich/DSC-402-P1/main/DebtPenny-2000-2026.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "toDate(datum['Record Date']) >= toDate('2016-01-01') && toDate(datum['Record Date']) <= toDate('2026-01-01')"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Total Public Debt Outstanding'], ',', '')) / 1e12",
+      "as": "TotalDebt_T"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Intragovernmental Holdings'], ',', '')) / 1e12",
+      "as": "IntraGov_T"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Debt Held by the Public'], ',', '')) / 1e12",
+      "as": "DebtPublic_T"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rect", "opacity": 0.15, "color": "red"},
+      "data": {
+        "values": [
+          {"start": "2017-01-20", "end": "2021-01-19", "ymin": 0, "ymax": 40},
+          {"start": "2025-01-20", "end": "2026-01-01", "ymin": 0, "ymax": 40}
+        ]
+      },
+      "encoding": {
+        "x": {"field": "start", "type": "temporal"},
+        "x2": {"field": "end"},
+        "y": {"field": "ymin", "type": "quantitative"},
+        "y2": {"field": "ymax"}
+      }
+    },
+    {
+      "transform": [{"calculate": "'Total Debt'", "as": "Series"}],
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "Record Date", "type": "temporal", "title": "Year"},
+        "y": {
+          "field": "TotalDebt_T",
+          "type": "quantitative",
+          "title": "Debt (Trillions of USD)",
+          "scale": {"domain": [0, 40], "nice": false}
+        },
+        "color": {
+          "field": "Series",
+          "type": "nominal",
+          "scale": {"range": ["#1f77b4", "#d62728", "#2ca02c"]},
+          "title": "Debt Type",
+          "sort": [
+            "Total Debt",
+            "Debt Held by the Public",
+            "Intragovernmental Holdings"
+          ]
+        }
+      }
+    },
+    {
+      "transform": [
+        {"calculate": "'Intragovernmental Holdings'", "as": "Series"}
+      ],
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "Record Date", "type": "temporal"},
+        "y": {
+          "field": "IntraGov_T",
+          "type": "quantitative",
+          "scale": {"domain": [0, 40], "nice": false}
+        },
+        "color": {
+          "field": "Series",
+          "type": "nominal",
+          "scale": {"range": ["#1f77b4", "#d62728", "#2ca02c"]},
+          "title": "Debt Type",
+          "sort": [
+            "Total Debt",
+            "Debt Held by the Public",
+            "Intragovernmental Holdings"
+          ]
+        }
+      }
+    },
+    {
+      "transform": [{"calculate": "'Debt Held by the Public'", "as": "Series"}],
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "Record Date", "type": "temporal"},
+        "y": {
+          "field": "DebtPublic_T",
+          "type": "quantitative",
+          "scale": {"domain": [0, 40], "nice": false}
+        },
+        "color": {
+          "field": "Series",
+          "type": "nominal",
+          "scale": {"range": ["#1f77b4", "#d62728", "#2ca02c"]},
+          "title": "Debt Type",
+          "sort": [
+            "Total Debt",
+            "Debt Held by the Public",
+            "Intragovernmental Holdings"
+          ]
+        }
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis2", spec2, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</div>
+
+    <br>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Stacked Visualization</h1>
+                <p style="text-indent: 40px">This visualization shows the two types of debt stacked on top of each other. The total debt is still shown through the addition of these density plots. This visualization, while a bit more difficult to see the values of Debt Held by the Public, can be useful in showing just how much bigger the public debt is than the government debt.</p>
+            </div>
+        </main>
+    </main>
+
+<!--VIS 3-->
+
+  <div id="vis3">
+  <script>
+    const spec3 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/randrs-umich/DSC-402-P1/main/DebtPenny-2000-2026.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "toDate(datum['Record Date']) >= toDate('2016-01-01') && toDate(datum['Record Date']) <= toDate('2026-01-01')"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Intragovernmental Holdings'], ',', '')) / 1e12",
+      "as": "IntraGov_T"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Debt Held by the Public'], ',', '')) / 1e12",
+      "as": "DebtPublic_T"
+    },
+    {"fold": ["DebtPublic_T", "IntraGov_T"], "as": ["Series", "Value"]},
+    {
+      "lookup": "Series",
+      "from": {
+        "data": {
+          "values": [
+            {"key": "DebtPublic_T", "label": "Debt Held by the Public"},
+            {"key": "IntraGov_T", "label": "Intragovernmental Holdings"}
+          ]
+        },
+        "key": "key",
+        "fields": ["label"]
+      }
+    }
+  ],
+  "mark": {"type": "area", "line": true},
+  "encoding": {
+    "x": {"field": "Record Date", "type": "temporal", "title": "Year"},
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Debt (Trillions of USD)",
+      "stack": "zero",
+      "scale": {"domain": [0, 40], "nice": false}
+    },
+    "color": {
+      "field": "label",
+      "type": "nominal",
+      "title": "Debt Type",
+      "sort": ["Debt Held by the Public", "Intragovernmental Holdings"],
+      "scale": {
+        "domain": ["Debt Held by the Public", "Intragovernmental Holdings"],
+        "range": ["#1f77b4", "#2ca02c"]
+      }
+    }
+  },
+  "config": {}
+};
+    vegaEmbed("#vis3", spec3, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</div>
+
+    <br>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Percentage Visualization</h1>
+                <p style="text-indent: 40px">This visualization, especially when paired with the previous one, shows information about the share of each type of debt. It clearly shows the share of the total debt that each type has. It also has a very unusual look to it that gets the readers mind thinking.</p>
+            </div>
+        </main>
+    </main>
+
+<!--VIS 4-->
+
+  <div id="vis4">
+  <script>
+    const spec4 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/randrs-umich/DSC-402-P1/main/DebtPenny-2000-2026.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "toDate(datum['Record Date']) >= toDate('2016-01-01') && toDate(datum['Record Date']) <= toDate('2026-01-01')"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Total Public Debt Outstanding'], ',', ''))",
+      "as": "TotalDebt"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Intragovernmental Holdings'], ',', ''))",
+      "as": "IntraGov"
+    },
+    {
+      "calculate": "toNumber(replace(datum['Debt Held by the Public'], ',', ''))",
+      "as": "DebtPublic"
+    },
+    {
+      "calculate": "datum.IntraGov / datum.TotalDebt",
+      "as": "Intergovernmental Debt"
+    },
+    {
+      "calculate": "datum.DebtPublic / datum.TotalDebt",
+      "as": "Debt Held by the Public"
+    },
+    {
+      "fold": ["Intergovernmental Debt", "Debt Held by the Public"],
+      "as": ["DebtType", "Pct"]
+    }
+  ],
+  "mark": {"type": "line", "strokeWidth": 2},
+  "encoding": {
+    "x": {"field": "Record Date", "type": "temporal", "title": "Year"},
+    "y": {
+      "field": "Pct",
+      "type": "quantitative",
+      "title": "Share of Total Debt",
+      "axis": {"format": ".0%"}
+    },
+    "color": {
+      "field": "DebtType",
+      "type": "nominal",
+      "title": "Debt Type",
+      "scale": {
+        "domain": ["Debt Held by the Public", "Intergovernmental Debt"],
+        "range": ["#1f77b4", "#d62728"]
+      }
+    }
+  },
+  "config": {}
+};
+    vegaEmbed("#vis4", spec4, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</div>
+
+<!--Attribution-->
+
+    <br>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Attribution</h1>
+                <p><a href="https://catalog.data.gov/dataset/debt-to-the-penny?from_hint=eyJxIjoiaW5mbGF0aW9uIiwic29ydCI6InBvcHVsYXJpdHkifQ%3D%3D">Debt to the Penny Dataset</a><br><br><a href="https://vega.github.io/vega-lite/">Vega Lite</a><br><br>Much of this work was aided by the use of online resources and AI. The AI models that were used was Gemeni and Copilot.</p>
+            </div>
+        </main>
+    </main>
+
+    <br>
+    <main class="boxm" style="width: 190px">
+        <main class="boxt">
+                <h1><a href="index.html">Home Page</a></h1>
+        </main>
+    </main>
+
+</body>
+</html>

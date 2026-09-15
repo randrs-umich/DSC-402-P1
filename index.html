@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Ryan's Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <style>
+            * { box-sizing: border-box; }
+
+            html, body {
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+            }
+
+            body {
+                background: linear-gradient(12deg, #f1a753, #f57777);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: "League Spartan", sans-serif;
+            }
+
+            .boxm {
+                width: 760px;
+                height: auto;
+                text-align: center;
+                margin-bottom: 15px;
+                background: linear-gradient(80deg, #e2d0ff, #ce68fd);
+                border-radius: 12px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                outline: 4px solid #180085;
+            }
+
+            .boxm-top {
+                width: 840px;
+                margin-bottom: 40px;
+                background: linear-gradient(80deg, #c099ff, #e044ff);
+                outline: 5px solid #180085;
+            }
+
+
+            .boxi {
+                width: 730px;
+                height: 30px;
+                padding-left: .5rem;
+                align-content: center;
+                background: #ffffff;
+                border-radius: 8px;
+                margin-top: 15px;
+                margin-bottom: 0;
+                outline: 3px solid #180085;
+
+                display: flex;
+                align-items: center;
+            }
+
+            .boxi-top {
+                width: 810px;
+            }
+
+            .boxt {
+                padding: .5rem .75rem;
+                background: #ffffff;
+                border-radius: 8px;
+                margin-top: 10px;
+                margin-bottom: 0;
+                outline: 3px solid #180085;
+
+                display: inline-flex;
+                align-items: flex-start;
+                width: fit-content;
+                max-width: 100%;
+                margin-right: 15px;
+            }
+
+            .cont {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            p {
+                font-weight: bold;
+                font-size: 1.25rem;
+            }
+
+            .title {
+                font-family: "Press Start 2P", sans-serif;
+                font-weight: 400;
+            }
+            
+            .rightp {
+                margin-left: auto;
+            }
+
+            .boxt h1 {
+                margin: 0;
+                margin-bottom: 10px;
+                padding: 0;
+            }
+
+            .boxt p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .ul {
+                text-decoration: underline;
+            }
+
+            [hidden] {
+                display: none !important;
+            }
+
+            .arrow-toggle {
+                width: 44px;
+                height: 36px;
+                padding: 0;
+                margin: 15px 0 15px;
+                border: 3px solid #180085;
+                border-radius: 8px;
+                background: #ffffff;
+                color: #180085;
+                font-size: 1.5rem;
+                line-height: 1;
+                cursor: pointer;
+            }
+
+            .arrow-toggle .arrow {
+                display: inline-block;
+                transition: transform .2s ease;
+            }
+
+            .arrow-toggle[aria-expanded="true"] .arrow {
+                transform: rotate(180deg);
+            }
+
+            .a2, .a3, .a4 {
+                width: 730px;
+                margin-left: 15px;
+                align-items: center;
+            }
+
+            .a2 div, .a3 div, .a4 div {
+                text-align: left;
+                width: 100%;
+            }
+
+            .a2 h1, .a3 h1, .a4 h1 {
+                text-align: center;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <br>
+        <br>
+        <main class="boxm boxm-top">
+            <main class="boxi boxi-top">
+                <p class="title">RYAN'S PORTFOLIO</p>
+            </main>
+            <div class="cont">
+                <img src="KirbySleep.gif" width="154" height="112" class="left">
+                <main class="boxt">
+                    <div class="rightp">
+                        <h1>Hello! Welcome to my Portfolio!</h1>
+                        <p>Below you will find a little bit about me<br>and my projects for DCS-402!</p>
+                    </div>
+                </main>
+            </div>
+        </main>
+        <br>
+        <br>
+        <main class="boxm">
+            <main class="boxi">
+                <p class="title">RYAN.TXT</p>
+            </main>
+            
+            <main class="boxt a2" id="a2-content" hidden>
+                <div>
+                    <h1 class="ul">About Me</h1>
+                    <p>My name is Ryan and I was born in Michigan's Upper Peninsula in a small town called Sault Ste. Marie. I lived here for 18 years before moving to Saginaw to attend post-secondary school at the University of Michigan - Flint. I am studying Actuarial Mathematics and pursuing minors in Economics and Data Analytics. I love anything regarding the outdoors such as hiking, kayaking, paddleboarding, and snowshoeing. I also love playing music and mainly play the guitar and bass guitar.</p>
+                </div>
+            </main>
+
+            <button class="arrow-toggle a2-toggle"
+                type="button"
+                aria-label="Show Section"
+                aria-expanded="false"
+                aria-controls="a2-content">
+                <span class="arrow" aria-hidden="true"><b>v</b></span>
+            </button>
+        </main>
+
+        <main class="boxm">
+            <main class="boxi">
+                <p class="title">PROJECTS.EXE</p>
+            </main>
+            <main class="boxt a3" id="a3-content" hidden>
+                <div>
+                    <h1 class="ul">DSC-402 Projects</h1>
+                    <p><a href="P1.html">Project 1 - 4 Visualizations</a></p>
+                </div>
+            </main>
+
+            <button class="arrow-toggle a3-toggle"
+                type="button"
+                aria-label="Show Section"
+                aria-expanded="false"
+                aria-controls="a3-content">
+                <span class="arrow" aria-hidden="true"><b>v</b></span>
+            </button>
+        </main>
+        <script>
+    // Universal toggle system for all collapsible boxes
+            document.querySelectorAll('.arrow-toggle').forEach(button => {
+                const targetId = button.getAttribute('aria-controls');
+                const content = document.getElementById(targetId);
+
+                button.addEventListener('click', () => {
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+            // Flip expanded state
+                    button.setAttribute('aria-expanded', String(!isExpanded));
+
+            // Update label
+                    button.setAttribute('aria-label', isExpanded ? 'Show Section' : 'Hide Section');
+
+            // Show/hide the content box
+                    content.hidden = isExpanded;
+                });
+            });
+        </script>
+    </body>
+</html>
