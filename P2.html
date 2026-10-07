@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Project 2</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <style>
+
+            html, body {
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+            }
+
+            body {
+                background: linear-gradient(12deg, #f1a753, #f57777);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: "League Spartan", sans-serif;
+            }
+
+            .boxm {
+                width: 760px;
+                height: auto;
+                text-align: center;
+                margin-bottom: 15px;
+                background: linear-gradient(80deg, #e2d0ff, #ce68fd);
+                border-radius: 12px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                outline: 4px solid #180085;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxm-top {
+                width: 840px;
+                margin-bottom: 20px;
+                background: linear-gradient(80deg, #c099ff, #e044ff);
+                outline: 5px solid #180085;
+                margin-top: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxt {
+                padding: .5rem .75rem;
+                margin-bottom: 15px;
+                background: #ffffff;
+                border-radius: 8px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                outline: 3px solid #180085;
+
+                display: inline-flex;
+                align-items: flex-start;
+                width: fit-content;
+                max-width: 100%;
+            }
+
+            .boxt .rightp {
+                width: 100%;
+                text-align: left;
+            }
+
+            .boxt h1 {
+                margin: 0;
+                margin-bottom: 10px;
+                padding: 0;
+                text-align: center;
+            }
+
+            .boxt p {
+                margin: 0;
+                padding: 0;
+                font-weight: bold;
+                font-size: 1.25rem;
+            }
+
+            .rightp {
+                margin-left: auto;
+            }
+
+            #vis1, #vis2, #vis3, #vis4 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+        </style>
+  <script src="https://cdn.jsdelivr.net/npm/vega@6.4.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.1.0"></script>
+</head>
+<body>
+    <main class="boxm boxm-top">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>DWI Costs Visualization</h1>
+                <p style="text-indent: 40px">Below are 2 visualizations. The first visualization was taken from <a href="https://viz.wtf/image/158934436808">vis.wtf</a> and depicts the costs associated with getting a DWI (Driving While Intoxicated) charge in Travis County, Texas. The second visualization is of the same data just much easier to read and understand.</p>
+            </div>
+        </main>
+    </main>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Original Visualization</h1>
+                <p style="text-indent: 40px">This visualization has several glaring problems. The use of the third dimention is not useful in this visualization and actively makes it more difficult to understand. Had the third dimention not been utilized, this visualization would read a lot better. The texture used to color the bars is extremely difficult to understand. The bars are 3D but the texture and colors almost make it look like the bars are 2d objects due to no edges being visible and the colors of the sides and tops of the bars being similar. Most of the visualization just looks like 1 big blob of texture. These issues make this visualization extremely difficult to read and understand.</p>
+            </div>
+        </main>
+    </main>
+    <img src="DWICostsIMG.jpg">
+
+    <br>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Improved Visualization</h1>
+                <p style="text-indent: 40px">This visualization is simple and much easier to read than the original. It is a 2 dimentional vertical bar chart with a solid color filling the bars. The labels at the bottom are easily discernible from each other. This simplicity makes this chart extremely easy to read and draw conclusions from.</p>
+            </div>
+        </main>
+    </main>
+
+
+<div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "DWI Costs in Travis County",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/randrs-umich/DSC-402-P1/main/DWI%20Costs%20P2.csv"
+  },
+  "width": {"step": 55},
+  "mark": {"type": "bar", "color": "seagreen"},
+  "encoding": {
+    "x": {
+      "field": "Costs",
+      "type": "nominal",
+      "axis": {
+        "labelAngle": 0,
+        "labelExpr": "split(datum.label, ' ')",
+        "labelLineHeight": 14
+      }
+    },
+    "y": {"field": "USD", "type": "quantitative"}
+  },
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</div>
+
+    <br>
+    <main class="boxm" style="width: 190px">
+        <main class="boxt">
+                <h1><a href="index.html">Home Page</a></h1>
+        </main>
+    </main>
+</body>
+</html>
