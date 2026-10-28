@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Project 3</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <style>
+
+            html, body {
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+            }
+
+            body {
+                background: linear-gradient(12deg, #f1a753, #f57777);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: "League Spartan", sans-serif;
+            }
+
+            .boxm {
+                width: 760px;
+                height: auto;
+                text-align: center;
+                margin-bottom: 15px;
+                background: linear-gradient(80deg, #e2d0ff, #ce68fd);
+                border-radius: 12px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                outline: 4px solid #180085;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxm-top {
+                width: 840px;
+                margin-bottom: 20px;
+                background: linear-gradient(80deg, #c099ff, #e044ff);
+                outline: 5px solid #180085;
+                margin-top: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxt {
+                padding: .5rem .75rem;
+                margin-bottom: 15px;
+                background: #ffffff;
+                border-radius: 8px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                outline: 3px solid #180085;
+
+                display: inline-flex;
+                align-items: flex-start;
+                width: fit-content;
+                max-width: 100%;
+            }
+
+            .boxt .rightp {
+                width: 100%;
+                text-align: left;
+            }
+
+            .boxt h1 {
+                margin: 0;
+                margin-bottom: 10px;
+                padding: 0;
+                text-align: center;
+            }
+
+            .boxt p {
+                margin: 0;
+                padding: 0;
+                font-weight: bold;
+                font-size: 1.25rem;
+            }
+
+            .rightp {
+                margin-left: auto;
+            }
+
+            #vis1, #vis2, #vis3, #vis4 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+        </style>
+  <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+</head>
+<body>
+    <main class="boxm boxm-top">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Nvidia Stock Price Visualization</h1>
+                <p style="text-indent: 40px">Below are 2 visualizations. The first visualization shows the stock price of the publicly traded company, Nvidia (NVDA) over the past 5 years. The stock price has risen durastically ever since the AI boom due to the production of Nvidia's RTX series of GPUs and various other chips needed to run various AI models. The second visualization shows Nvidia's stock price over the past month. This portion of the data shows a small decline (about 5% overall). While over this interval the stock price overall declined, that does not show the full picture.</p>
+            </div>
+        </main>
+    </main>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>NVDA Rising</h1>
+                <p style="text-indent: 40px">This visualization shows NVDA rising over 5 years. This is a very accurate and faithful representation of their stock data. The vertical axis starts at 0 and goes to the upper bound of the data, the range of data is very broad and not cherry picked, and the regression line makes sense illustrating over such a wide range.</p>
+            </div>
+        </main>
+    </main>
+
+<!-- First tableau graph-->
+
+        <div class='tableauPlaceholder' id='viz1793152347358' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Boom Dash ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;P3&#47;P3Dash&#47;BoomDash&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz'  style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='P3Dash&#47;BoomDash' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;P3&#47;P3Dash&#47;BoomDash&#47;1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-US' />
+            </object>
+        </div>
+        <script type='text/javascript'>
+        var divElement = document.getElementById('viz1793152347358');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';}
+            else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
+            else { vizElement.style.width='100%';vizElement.style.height='727px';}
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+            
+    <br>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>NVDA Falling</h1>
+                <p style="text-indent: 40px">This visualization uses the same data as the first visualization but uses a few techniques to represent the information in a deceptive way. Firstly, the information shown is only for the last month which is causing the graph to look like it is decreasing. While this is not false, the way it is represented is deceptive as looking further back, growth is much more common. Secondly, the vertical axis is bound from 210 to 245 making the difference much more dramatic. This may seem like the loss is significant but it is less than a 10 dollar drop over the month. Finally using red to color the line signifies loss which is not nessecarily deceptive, but is certainly used to suggest something.</p>
+            </div>
+        </main>
+    </main>
+
+</div>
+
+<div class='tableauPlaceholder' id='viz1793154223486' style='position: relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='Tank Dash ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;P3&#47;P3Dash2&#47;TankDash&#47;1_rss.png' style='border: none' />
+        </a>
+    </noscript>
+    <object class='tableauViz'  style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='P3Dash2&#47;TankDash' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;P3&#47;P3Dash2&#47;TankDash&#47;1.png' /> 
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+    </object></div>                
+    <script type='text/javascript'>                    
+    var divElement = document.getElementById('viz1793154223486');                    
+    var vizElement = divElement.getElementsByTagName('object')[0];                    
+    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
+    else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
+    else { vizElement.style.width='100%';vizElement.style.height='727px';}                     
+    var scriptElement = document.createElement('script');                    
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    </script>
+
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Lying with Visualizations</h1>
+                <p style="text-indent: 40px">I think lying with visualizations is fairly easy. It does not work for all data, but given a large enough dataset, you could find certain parts that illustrate a point contradictory to the truth. Getting even more cynical with it, completely making up the data would be an even better way of lying in some cases. Most people who look at visualizations do not actually look at the source data and just take the conclusions at face value. Making up the data would likely be much easier to convince people of a false reality. Things to look out for in visualizations are the axis labels and tick marks, the range of data, and the validity of the data. If you look at these things and understand them, you will be able to catch most misleading visualizations.</p>
+            </div>
+        </main>
+    </main>
+
+    <br>
+    <main class="boxm" style="width: 190px">
+        <main class="boxt">
+                <h1><a href="index.html">Home Page</a></h1>
+        </main>
+    </main>
+</body>
+</html>
