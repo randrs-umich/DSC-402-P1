@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Project 4</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <style>
+
+            html, body {
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+            }
+
+            body {
+                background: linear-gradient(12deg, #f1a753, #f57777);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: "League Spartan", sans-serif;
+            }
+
+            .boxm {
+                width: 760px;
+                height: auto;
+                text-align: center;
+                margin-bottom: 15px;
+                background: linear-gradient(80deg, #e2d0ff, #ce68fd);
+                border-radius: 12px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                outline: 4px solid #180085;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxm2 {
+                width: auto;
+                height: auto;
+                text-align: center;
+                margin-bottom: 15px;
+                background: linear-gradient(80deg, #e2d0ff, #ce68fd);
+                border-radius: 12px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                outline: 4px solid #180085;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxm-top {
+                width: 840px;
+                margin-bottom: 20px;
+                background: linear-gradient(80deg, #c099ff, #e044ff);
+                outline: 5px solid #180085;
+                margin-top: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .boxt {
+                padding: .5rem .75rem;
+                margin-bottom: 15px;
+                background: #ffffff;
+                border-radius: 8px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                outline: 3px solid #180085;
+
+                display: inline-flex;
+                align-items: flex-start;
+                width: fit-content;
+                max-width: 100%;
+            }
+
+            .boxt .rightp {
+                width: 100%;
+                text-align: left;
+            }
+
+            .boxt h1 {
+                margin: 0;
+                margin-bottom: 10px;
+                padding: 0;
+                text-align: center;
+            }
+
+            .boxt p {
+                margin: 0;
+                padding: 0;
+                font-weight: bold;
+                font-size: 1.25rem;
+            }
+
+            .rightp {
+                margin-left: auto;
+            }
+
+            #vis1, #vis2, #vis3, #vis4 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+        </style>
+</head>
+<body>
+    <main class="boxm boxm-top">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Datawrapper Tutorial</h1>
+                <p>Datawrapper is a very user-friendly web-based tool to make a broad range of visualizations. Datawrapper has their own <a href="https://www.datawrapper.de/docs/how-to-create-your-first-datawrapper-chart">documentation</a> that goes in depth about how to make stacked bar charts. The documentation also briefly covers some other types of graphs. This tutorial will teach you how to make and customize line graphs in Datawrapper.</p>
+            </div>
+        </main>
+    </main>
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Before You Start</h1>
+                <p>Creating an account is necessary if you wish to publish and finalize your visualizations. Start by going to <a href="https://www.datawrapper.de/">Datawrapper</a> and click the three bars in the top right. This will open a menu where you can sign in. If you do not have an account, clicking the sign in button will also take you to the account creation page. Make your account and activate it via the email sent to you. Once you have done this, it is time to start creating!</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+<!-- Data Upload -->
+
+    <main class="boxm2">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Getting Started and Uploading Data</h1>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/1.png">
+                <br>
+                <p>To get started, click on the same three bars, hover over "Create new" then click "Chart". This will bring up a place for you to upload your data.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/2.png">
+                <br>
+                <p>On this page you are prompted to upload your data. There are several ways to do this, but I will be uploading a .csv file. Clicking the button will open your file explorer for you to select the .csv file.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <!-- Check & Describe -->
+
+    <main class="boxm2">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Check and Describe</h1>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/3.png">
+                <br>
+                <p>Your data should load in on the right side in .csv format. Click "proceed".</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/4.png">
+                <br>
+                <p>Datawrapper will process your data and classify it into types. Cells containing errors will show up in red. These errors need to be resolved before a visualization can be created. Once your data is clean, you can click the proceed button.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <!-- Visualize -->
+
+    <main class="boxm2">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Visualize</h1>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/5.png">
+                <br>
+                <p>Datawrapper will automatically create a visualization with your data. The visualization we will be going through is the "Lines" graph.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/6.png">
+                <br>
+                <p>Once you have selected the graph type, click the "Proceed" button at the bottom or the refine tab to start changing the attributes of your graph. You are also able to change the title of the graph from this screen, however, there will be other opportunities to do so later in the tabs.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/7.png">
+                <br>
+                <p>Datawrapper is very good at fitting data and automatically choosing the amount of decimal places for numbers. In this case, the horizontal axis is correctly fitting the years in a nice range. You can freely change these settings to display your graph however you see fit. For my graph, I will only display the grid lines as this is much easier to view.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/8.png">
+                <br>
+                <p>Just like the horizontal axis, the vertical axis is basically spot on. For this graph, the one thing I will change is the number format to "0.0". This won't change anything now but will be useful later on when trying to display certain decimals differently in different places.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/9.png">
+                <br>
+                <p>Customizing your lines is an essential part of making a good visualization. While you can change the color from this menu, it is best that you set custom colors for each line. This will be described in the next step. Choosing an interpolation method can give your lines a nice smooth feel or create rigid steps. For this one, I will choose the "curved" interpolation. Labels can also be changed here or in the next step.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/10.png">
+                <br>
+                <p>Here I have changed the base color of the lines. As you can see, this changes the colors of all lines and makes them slightly darker and lighter to distinguish them. This can be good in some circumstances, but for this graph, I will change the individual colors for all 3 lines.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/11.png">
+                <br>
+                <p>Clicking on a line at the top will bring up a menu. From this menu you can customize the lines freely. I set individual colors for each line to distinguish them further. By clicking the "All" button towards the top, you can change certain atributes of all lines. This is useful to change the labels and width as these are likely attributes you would want common between all lines.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/12.png">
+                <br>
+                <p>Because we are changing the colors of your lines, this is a great time to make sure everything is readable to everyone. Below your graph are some settings you can play with. Among these are colorblind checks. Ensuring that all five states are clearly distinguishable is essential to making a good graph. Of the 5, the "Protanopia" color blindness was the most difficult to read but still is distinguishable enough. Switching the theme to dark mode will also change the colors slightly. Due to this, ensure that all colors are readable in all states after swapping.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/13.png">
+                <br>
+                <p>Fill areas can be very useful in showing differences between lines. Adding a fill area makes this the default for my data set. There are several ways to customize this.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/14.png">
+                <br>
+                <p>One such way to use this is shown above. Temperature readings below 0 are shown in blue and readings above 0 are shown in in red.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/15.png">
+                <br>
+                <p>When using these, ensure that the interpolation method is the same for both your graph and your fill area. If they are different, you may see certain gaps between the line and the fill area as shown here. To delete a fill area, hit the trash can icon circled above.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/16.png">
+                <br>
+                <p>A tooltip is a good and simple way to make your visualization interactable. Here we will optimize it to display the full data.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/17.png">
+                <br>
+                <p>As you can see, hovering over a point only shows the data to one decimal place. Looking at the raw data, we have measurements that go to 2 decimal places. Simply changing this to be "0.00" in the values format tab will fix this.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/18.png">
+                <br>
+                <p>Hovering over the same point reveals that the actual value here was 0.18 instead of 0.2. While this is not a large difference, displaying your data more accurately is preferred.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/19.png">
+                <br>
+                <p>The Appearance menu is used to change the size of your visualization. It is essential to set the size of your graph such that it is easily readable. This fixed number changes the plot height. This means that the total height depends on other things like the title, notes, and description. </p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/20.png">
+                <br>
+                <p>A great way to keep the proportions of your visualization the same no matter what you are viewing it from is to base your plot height on the width. The preview of my plot looks great so I want to keep it around the same proportions. When displaying this visualization. it will keep the same relative dimensions and won't stretch in unusual ways. It is good to preview the visualization using the buttons below it. This will show you what your visualization will look like when viewed on different devices.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/21.png">
+                <br>
+                <p>Once you have attributes you are happy with, simply click the "Proceed" button at the bottom or the "Annotate" button at the top to customize it further.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/22.png">
+                <br>
+                <p>The Annotate tab allows you to customize the text around your visualization as well as what extra info is displayed. </p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/23.png">
+                <br>
+                <p>Here I have entered simple and relevant information in the boxes.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/24.png">
+                <br>
+                <p>Text annotations and highlight ranges are great for if you want to highlight something in your graph. Suppose you wish to display two graphs, one is the current graph and the other is a small piece of that graph. You can highlight the region your second graph would cover to contextualize it within the total graph and write an annotation about it to explain why the highlighted range is of importance.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/25.png">
+                <br>
+                <p>Once you have finished with any annotations, click the "Proceed" button at the bottom or the "Layout" button at the top of the page to continue.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <!-- Publish and Embed -->
+
+    <main class="boxm2">
+        <main class="boxt">
+            <div class="rightp">
+                <h1>Publish and Embed</h1>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/26.png">
+                <br>
+                <p>For simple visualizations, most of the Layout page is already correct. The main thing to look at is the Footer section. The data and image download buttons will allow users to download the data that you used and the image of the visualization. The embed link will allow users to copy the embed code for your visualization. The image download and embed link are both available on the screen displayed after publishing and are not needed to be included in the visualization if you wish to use either. Once you are finished, click the "Proceed" button to go to the publishing menu.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/27.png">
+                <br>
+                <p>Simply click "Publish now" to save your visualization and make it accessible to anyone with the link. This is a necessary step if you wish to embed your visualization.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <img src="Images/28.png">
+                <br>
+                <p>Once you have published your visualization, you are now able to embed it! Simply copy the code under "Share & Embed" and paste it where you want it. If you want to update your visualization, you do not have to update your code. Simply make any alterations you want and republish it. This will update the visualization and it will be reflected the next time it is displayed.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+    <main class="boxm">
+        <main class="boxt">
+            <div class="rightp">
+                <iframe title="Average Temperature Departure" aria-label="Line chart" id="datawrapper-chart-zWcov" src="https://datawrapper.dwcdn.net/zWcov/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="562" data-external="1"></iframe><script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
+                <p>Here is the finished graph. Embedding these graphs into your website is very easy and simply requires you to paste the code wherever you want it. Since it is pulling the visualization from the internet, you cannot view this offline unless you use an image of the graph instead of the embed.</p>
+            </div>
+        </main>
+    </main>
+    <br>
+
+
+
+    <main class="boxm" style="width: 190px">
+        <main class="boxt">
+                <h1><a href="index.html">Home Page</a></h1>
+        </main>
+    </main>
+</body>
+</html>
